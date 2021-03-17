@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.controllers.TileController">
+   <children>
+      <VBox alignment="CENTER" layoutX="72.0" layoutY="38.0" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="imageCourse" fitHeight="222.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblName" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblCost" text="Label">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="lblActive" text="Label" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
