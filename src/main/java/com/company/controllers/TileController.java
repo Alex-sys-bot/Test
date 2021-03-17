@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class TileController {
 
@@ -23,8 +24,22 @@ public class TileController {
     private Label lblActive;
 
 
-    public void setData(Product product){
+
+    private MyListener myListener;
+
+    private Product product;
+
+    public void click(MouseEvent event) {
+        myListener.mouseClicked(product);
+    }
+
+
+
+    public void setData(Product product,MyListener myListener){
+        this.myListener = myListener;
+        this.product = product;
         lblName.setText(product.getName());
         imageCourse.setImage(new Image(product.getImagePath()));
     }
+
 }

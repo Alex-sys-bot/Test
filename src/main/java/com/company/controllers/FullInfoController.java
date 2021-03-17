@@ -11,6 +11,8 @@ public class FullInfoController {
 
 
     public void setData(Product product){
-
+        lblName.setText(product.getName());
     }
+
+
 }

@@ -42,33 +42,39 @@ public class MainWindowController {
 
     ObservableList<Product> products = FXCollections.observableArrayList();
 
-    public static String role;
+    private MyListener myListener;
 
 
     @FXML
     public void initialize() throws IOException {
         initData();
         rubberWindow();
+        fullInfo();
         generatedTiles(products);
         search();
-        fullInfo();
     }
 
-
-
     private void fullInfo() throws IOException {
-        FXMLLoader loader = FXMLLoader.load(getClass().getResource("/view/fullInfo.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fullInfo.fxml"));
         AnchorPane anchorPane;
         anchorPane = loader.load();
         FullInfoController fullInfoController = loader.getController();
 
         Stage stage = new Stage();
         stage.setScene(new Scene(anchorPane));
-        stage.show();
+
+        myListener = new MyListener() {
+            @Override
+            public void mouseClicked(Product product) {
+                fullInfoController.setData(product);
+                stage.show();
+            }
+        };
     }
 
     private void generatedTiles(ObservableList<Product> products) throws IOException {
         tilePane.getChildren().clear();
+        tilePane.setPrefWidth(200);
 
         AnchorPane anchorPane;
         tilePane.setAlignment(Pos.TOP_LEFT);
@@ -80,7 +86,7 @@ public class MainWindowController {
             anchorPane = loader.load();
             TileController tileController = loader.getController();
 
-            tileController.setData(product);
+            tileController.setData(product,myListener);
             tilePane.getChildren().add(anchorPane);
         }
     }
